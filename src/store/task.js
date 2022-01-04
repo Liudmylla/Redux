@@ -22,7 +22,9 @@ const taskSlice = createSlice({
       };
     },
     remove(state, action) {
-      return state.entities.filter((el) => el.id !== action.payload.id);
+      state.entities = state.entities.filter(
+        (el) => el.id !== action.payload.id
+      );
     },
     taskRequested(state) {
       state.isLoading = true;

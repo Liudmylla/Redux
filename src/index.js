@@ -5,6 +5,7 @@ import configureStore from "./store/store";
 import {
   titleChanged,
   taskDeleted,
+  createTask,
   completeTask,
   getTasks,
   loadTasks,
@@ -31,15 +32,18 @@ const App = (params) => {
   const deleteTask = (taskId) => {
     dispatch(taskDeleted(taskId));
   };
+
   if (isLoading) {
     return <h1>Loading...</h1>;
   }
   if (error) {
     return <p>{error}</p>;
   }
+
   return (
     <>
       <h1>App</h1>
+      <button onClick={createTask()}>Add task</button>
       <ul>
         {state.map((el) => (
           <li key={el.id}>

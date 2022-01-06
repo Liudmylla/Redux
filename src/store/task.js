@@ -13,9 +13,7 @@ const taskSlice = createSlice({
       state.isLoading = false;
     },
     created(state, action) {
-      console.log(state.entities);
-      console.log(action.payload);
-      state.entities = state.entities.push(action.payload);
+      state.entities.unshift(action.payload);
     },
     update(state, action) {
       const elementIndex = state.entities.findIndex(
@@ -61,7 +59,6 @@ export const createTask = () => async (dispatch) => {
       title: "New post",
       completed: false,
     });
-    console.log(data);
     dispatch(created(data));
   } catch (error) {
     console.log(error);

@@ -43,7 +43,7 @@ const App = (params) => {
   return (
     <>
       <h1>App</h1>
-      <button onClick={createTask()}>Add task</button>
+      <button onClick={() => dispatch(createTask())}>Add task</button>
       <ul>
         {state.map((el) => (
           <li key={el.id}>
